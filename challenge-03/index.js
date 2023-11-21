@@ -1,3 +1,5 @@
+const countLetters = (word, letter) => word.split('').filter(l => letter === l).length
+
 const init = async () => {
   const rawData = await fetch('https://codember.dev/data/encryption_policies.txt')
   const text = await rawData.text()
@@ -11,7 +13,6 @@ const init = async () => {
     const min = Number(minString)
     const max = Number(maxString.trim())
     
-    const countLetters = (_word, letter) => _word.split('').filter(l => letter === l).length
     const count = countLetters(password, keyLetter)
     const isInvalid = count >= min && count <= max
   
